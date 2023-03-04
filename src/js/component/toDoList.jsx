@@ -10,5 +10,4 @@ const ToDoList = ({toDo}) => {
         </div>        
     );
 }
-git remote add origin https://github.com/sisasfx/ToDoList-React.git
 export default ToDoList;
