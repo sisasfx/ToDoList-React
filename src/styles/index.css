@@ -1,22 +1,39 @@
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     width: 80%;
     padding: 2em;
     background: #ccc;
 }
 
 .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
     margin-bottom: 1em;
 }
 
 .card{
     display: flex;
-    width: 50%;
+    flex-direction: row;
+    width: 20%;
     border: 2px solid black;
 }
 
 .card > h5 {
+    margin-top: .2em;
+    margin-bottom: .2em;
     margin-left: 1em
+}
+
+#icon{
+    font-size: 1.5em;
+    margin-left: 1em;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    background: red;
+    border-radius: 100%;
+    border: 1px solid black;
 }
