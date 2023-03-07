@@ -1,31 +1,38 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Form from "../component/form.jsx"
 import ToDoList from "./toDoList.jsx";
 
 //create your first component
 const Home = () => {
 
-	
-
 	const [toDo, setToDo] = useState([])
+	const [isChangeList, setIsChangeList] = useState(true)
+
+	useEffect(() => {
+		console.log("DESDE USEEFFECT")
+		
+	},[toDo])	
 
 	const handleToDo = (addToDo) => {
 			setToDo([...toDo, addToDo])
 	}
 
 	const deleteToDo = (itemList) => {
-		console.log(itemList)
 		for(let i = 0; i < toDo.length; i++){
-			itemList === toDo[i] ? toDo.splice(0,i) : null
+			if(toDo[i] === itemList){
+				toDo.splice(i,1)
+				setToDo(toDo)
+				console.log(toDo)
+				setIsChangeList(!isChangeList)
+			}			
 		}
-		console.log(toDo)
 	}
 
 	return (
 		<div className="container">
 			<Form handleToDo={handleToDo}/>
 			{
-				toDo.map(item => <ToDoList toDo={item} deleteToDo={deleteToDo}/>)
+				isChangeList ? toDo.map(item => <ToDoList toDo={item} deleteToDo={deleteToDo}/>) : null
 			}
 		</div>
 	);

@@ -6,7 +6,7 @@ const Form = ({handleToDo}) => {
     const [state, setState] = useState("")
 
     const recordingToDo = (e) => {
-        console.log(e.target.value)
+        //console.log(e.target.value)
         setState(e.target.value)
     }
 
