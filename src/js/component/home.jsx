@@ -32,7 +32,7 @@ const Home = () => {
 		<div className="container">
 			<Form handleToDo={handleToDo}/>
 			{
-				isChangeList ? toDo.map(item => <ToDoList toDo={item} deleteToDo={deleteToDo}/>) : null
+				isChangeList ? toDo.map(item => <ToDoList toDo={item} deleteToDo={deleteToDo}/>) : toDo.map(item => <ToDoList toDo={item} deleteToDo={deleteToDo}/>)
 			}
 		</div>
 	);
