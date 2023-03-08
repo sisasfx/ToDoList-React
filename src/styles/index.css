@@ -13,13 +13,41 @@
     justify-content: center;
     width: 50%;
     margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 0.5em;
+    background: #a39d9d;
+    box-shadow: 5px 5px 10px 1px white;
+}
+
+.mainCardContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.card-container1{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 25%;
+    background-color: rgb(231, 220, 206);
+}
+
+.card-container2{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 25%;
+    background-color: rgb(231, 220, 206);
 }
 
 .card{
     display: flex;
     flex-direction: row;
     width: max-content;
-    border: 2px solid black;
+    border: 1px solid black;
+    margin-top: .5em;
 }
 
 .card > h5 {
@@ -31,9 +59,30 @@
 #icon{
     font-size: 1.5em;
     margin-left: 1em;
+    margin-right: .5em;
     margin-top: .2em;
     margin-bottom: .2em;
     background: red;
     border-radius: 100%;
     border: 1px solid black;
+}
+
+.noChecked{
+    font-size: 1.5em;
+    margin-right: 1em;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    color: red;
+}
+.checked{
+    font-size: 1.5em;
+    margin-right: 1em;
+    margin-left: .5em;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    color: green;
+}
+
+.removeDeleteIcon{
+    display: none;
 }

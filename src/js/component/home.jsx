@@ -1,39 +1,50 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Form from "../component/form.jsx"
 import ToDoList from "./toDoList.jsx";
+import CheckedList from "./checkedList.jsx";
 
-//create your first component
+
 const Home = () => {
 
 	const [toDo, setToDo] = useState([])
-	const [isChangeList, setIsChangeList] = useState(true)
 
-	useEffect(() => {
-		console.log("DESDE USEEFFECT")
-		
-	},[toDo])	
+	const [checkedToDo, setCheckedToDo] = useState([])
 
 	const handleToDo = (addToDo) => {
 			setToDo([...toDo, addToDo])
 	}
 
-	const deleteToDo = (itemList) => {
-		for(let i = 0; i < toDo.length; i++){
-			if(toDo[i] === itemList){
-				toDo.splice(i,1)
-				setToDo(toDo)
-				console.log(toDo)
-				setIsChangeList(!isChangeList)
-			}			
-		}
+	const checkToDo = (index) => {
+		const itemChecked = toDo.splice(index, 1)
+		console.log(itemChecked)
+		console.log(checkedToDo)
+		setCheckedToDo([...checkedToDo, itemChecked])
+		
+	}
+
+	const deleteToDo = (index) => {
+		const copiaToDo = [...toDo]
+		copiaToDo.splice(index,1)
+		console.log(copiaToDo)
+		setToDo(copiaToDo)	
 	}
 
 	return (
 		<div className="container">
+			<h1>To Do List</h1>
 			<Form handleToDo={handleToDo}/>
-			{
-				isChangeList ? toDo.map(item => <ToDoList toDo={item} deleteToDo={deleteToDo}/>) : toDo.map(item => <ToDoList toDo={item} deleteToDo={deleteToDo}/>)
-			}
+			<div className="mainCardContainer">
+				<div className="card-container1">
+				{
+					toDo.length > 0 ? toDo.map((item, key) => <ToDoList toDo={item} id={key} key={key} checkToDo={checkToDo} deleteToDo={deleteToDo}/>) : console.log("NO hay tareas")
+				}
+				</div>
+				<div className="card-container2">
+				{
+					checkedToDo.length > 0 ? checkedToDo.map((item, key) => <CheckedList className="checked" toDo={item} id={key} key={key}/>) : console.log("NO hay tareas")
+				}
+				</div>			
+			</div>			
 		</div>
 	);
 };

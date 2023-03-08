@@ -11,8 +11,11 @@ const Form = ({handleToDo}) => {
     }
 
     const addToDo = (e) => {
-        e.keyCode === 13 ? handleToDo(state) : console.log("NOOOO")
+      if(e.keyCode === 13  && state.length > 2){
+        handleToDo(state)
         setState("")
+        console.log("Debajo state")
+      }      
     }
 
   return (
@@ -25,6 +28,7 @@ const Form = ({handleToDo}) => {
         type="text"
         id="toDo"
         placeholder="...write your to do"
+        value={state}
         onChange={recordingToDo}
         onKeyDown={addToDo}
       ></input>
